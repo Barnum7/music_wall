@@ -1,0 +1,40 @@
+<h1>Add New Music</h1>
+<hr/>
+
+<a href = "/"> Back to Homepage </a>
+
+<hr/>
+
+<% if @musics.errors.any? %>
+  <div>
+    <strong>Some issues with your form, please fix them:</strong>
+    <ul>
+      <% @musics.errors.full_messages.each do |music| %>
+      <li><%= music %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<form method = "post" action = "/">
+
+  <div>
+    <label>Song Title:</label>
+    <input type = "text" name = "song_title" value = "<%= @musics.song_title %>">
+  </div>
+
+  <div>
+    <label>Author:</label>
+    <input type = "text" name = "author" value = "<%= @musics.author %>">
+  </div>
+
+  <div>
+    <label>URL:</label>
+    <input type = "text" name = "url" value = "<%= @musics.url %>">
+  </div>
+
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+
+</form>
